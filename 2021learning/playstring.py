@@ -7,3 +7,6 @@ lista=[string, "Hi world", "My name is ruly", "Have a fantastic day"]
 print(lista[1])
 print(lista[-1][2])
 print(lista[0:3])
+stringtwo="Hello Ruly"
+stringtwo=stringtwo.replace(stringtwo[0], "_")
+print(stringtwo)
