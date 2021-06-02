@@ -1,0 +1,18 @@
+# operador logico
+print("Ingrese el valor de a")
+a = float(input())
+print("Ingrese el valor de b")
+b = float(input())
+print("b es mayor que a")
+print(b > a)
+print(type(b > a))
+print("b es menor que a")
+print(b < a)
+print("b es mayor o igual que a")
+print(b >= a)
+print("b es menor o igual que a")
+print(b <= a)
+print("b es diferente de a")
+print(b != a)
+var = b == a
+print("b = a? ", var)
