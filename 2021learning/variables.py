@@ -1,3 +1,7 @@
+#by ruly 
+'''
+  Comment
+'''
 numero = 10
 flotante = 10.46
 num1 = 10
