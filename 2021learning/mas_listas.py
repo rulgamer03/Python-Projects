@@ -18,3 +18,9 @@ del numeros[5]
 print(numeros)
 numeros.pop()
 print(numeros)
+numeros[1]=99
+print(numeros)
+x = ["a", "b", "c", "d"]
+x[1] = "r"
+x[2:] = ["s", "t"]
+print(x)
