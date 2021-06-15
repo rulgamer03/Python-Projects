@@ -9,28 +9,30 @@ import argparse
 
 parser = argparse.ArgumentParser(description="Batch rename files in directory")
 
-parser.add_argument("search", type=str, help="To be replaced text")
-parser.add_argument("replace", type=str, help="Text to use for replacement")
+parser.add_argument("search", type=str, help="To be replaced text") # document 
+parser.add_argument("replace", type=str, help="Text to use for replacement") # file
 parser.add_argument(
     "--filetype",
-    type=str,
-    default=None,
+    type=str, # the extension is a string
+    default=None, # We don't have a default value 
     help="Only files with the given type will be renamed (e.g. .txt)"
 )
 parser.add_argument(
     "--path",
-    type=str,
-    default=".",
+    type=str, # the path is a string
+    default=".", # Default value 
     help="Directory path that contains the to be renamed files"
 )
 
-args = parser.parse_args()
+args = parser.parse_args() # we save all
 
 # to be replaced string and file extension filter
 search = args.search
 replace = args.replace
 type_filter = args.filetype
 path = args.path
+
+
 
 print(f"Renaming files at path {path}")
 
