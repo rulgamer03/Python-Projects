@@ -14,9 +14,9 @@ def calculate_moda(datos):
             moda.append(i)
 
     if len(moda) != len(datos):
-        print(f"La moda es {moda}")
+        print(f"\nLa moda es {moda}")
     else:
-        print('No hay moda')
+        print('\nNo hay moda')
 
 def calulate_mediana(datos):
     datos.sort() #.sort Ordena los ítems dela lista
@@ -27,7 +27,7 @@ def calulate_mediana(datos):
     else:
         mediana = datos[int(len(datos) / 2)]
 
-    print(f"La mediana es {mediana}")
+    print(f"\nLa mediana es {mediana}")
 
 
 
@@ -42,14 +42,25 @@ with open(filename) as f_obj:
         # print(line.rstrip())
 print("Datos: ")
 for line in lines:
-    print(line.rstrip())
-    numeros.append(int(line.rstrip()))
+    if line.rstrip()!='':
+        print(line.rstrip())
+        numeros.append(int(line.rstrip()))
 
 numeros.sort()
-print(f"Datos ordenados: \n{numeros}")
+print(f"\nDatos ordenados: \n{numeros}")
 
 if len(numeros)>0:
-    print(f"El promedio de los numeros en el archivo es {sum(numeros)/len(numeros)}")
+    print(f"\nEl promedio de los numeros en el archivo es {sum(numeros)/len(numeros)}")
     calculate_moda(numeros)
     calulate_mediana(numeros)
+
+"""
+import random
+for i in range (0, 900):
+    print(random.randrange(12))
+"""
+
+
+
+
 
