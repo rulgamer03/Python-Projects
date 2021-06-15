@@ -15,6 +15,6 @@ muestraslinea = muestras * 10 # el * 10 es para lograr la linea
 xk = np.linspace(a,b, muestraslinea)
 fk = fx(xk)
 plt.plot(xi,fi, 'ro') # Marcados por un punto ROJO "ro"
-plt.plot(xk,fk, 'g') # linea azul
+plt.plot(xk,fk, 'g') # linea verde
 plt.fill_between(xk,fk)
 plt.show()
