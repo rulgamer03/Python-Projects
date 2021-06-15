@@ -8,7 +8,7 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser(description="Batch rename files in directory")
-
+debug = False 
 parser.add_argument("search", type=str, help="To be replaced text") # document 
 parser.add_argument("replace", type=str, help="Text to use for replacement") # file
 parser.add_argument(
@@ -48,7 +48,8 @@ print(f"{len(docs)} of {len(dir_content)} elements are files.")
 for doc in docs:
     # separate name from file extension
     full_doc_path, filetype = os.path.splitext(doc)
-    print(f"Debug {doc}")
+    if debug == True:
+        print(f"Debug {doc}")
 
 
     # doc -> ./testing\file_27_09_03 - copia (2).txt
@@ -57,12 +58,14 @@ for doc in docs:
     # doc_path -> ./testing
     # doc_name -> file_27_09_03 - copia (2)
 
-
-    print(f"Debug {full_doc_path} and {filetype}")
+    if debug == True:
+        print(f"Debug {full_doc_path} and {filetype}")
     doc_path = os.path.dirname(full_doc_path)
-    print(f"Debug {doc_path}")
+    if debug == True:
+        print(f"Debug {doc_path}")
     doc_name = os.path.basename(full_doc_path)
-    print(f"Debug {doc_name}")
+    if debug ==True:
+        print(f"Debug {doc_name}")
     # filter for files with the right extension
     if filetype == type_filter or type_filter is None:
         # check if search text is in doc name
