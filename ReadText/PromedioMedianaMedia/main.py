@@ -31,7 +31,7 @@ def calulate_mediana(datos):
 
 
 
-filename = 'youtube_channels.txt'
+filename = 'numeros.txt'
 numeros = []
 with open(filename) as f_obj:
     lines = f_obj.readlines()
