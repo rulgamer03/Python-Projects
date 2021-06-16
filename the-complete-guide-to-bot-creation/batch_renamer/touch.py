@@ -20,6 +20,9 @@ def makefiles(path_here,b, a, name, ext, digit): # 0 100 document .txt 3
 			namefile = c+str(i).zfill(digit)+"."+ext
 			print(namefile)
 			makeonefile(path_here, namefile)
+	else:
+		print("Is not possible")
+
 
 
 
@@ -75,6 +78,6 @@ if numberofpoints == 3 and digits > 0:
 	# print(c)
 	if a > b and a > 0 and b >= 0 and len(c)>0 and len(extension)>0: # all values correct
 		makefiles(path_input ,b, a, c, extension, digits)
-
-
+	else:
+		print("Is not possible")
 
