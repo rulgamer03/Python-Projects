@@ -32,15 +32,21 @@ print(f"Cleaning up {len(docs)} of {len(dir_content)} elements.")
 for doc in docs:
     # separate name from file extension
     full_doc_path, filetype = os.path.splitext(doc)
+    #print (full_doc_path) # ./cambiar\demo2
+
+    #print(filetype) # .c
     doc_path = os.path.dirname(full_doc_path)
     doc_name = os.path.basename(full_doc_path)
-
+    #print(doc_path) #./cambiar
+    #print(doc_name) #demo2
     # skip this python file and all hidden files
     if doc_name == "directory_clean" or doc_name.startswith('.'):
         continue
 
     # get the subfolder name and create the folder if not exist
     subfolder_path = os.path.join(path, filetype[1:].lower())
+    #print(subfolder_path) #./cambiar\c
+
 
     if subfolder_path not in folders and subfolder_path not in created_folders:
         try:
@@ -52,6 +58,8 @@ for doc in docs:
 
     # get the new folder path and move the file
     new_doc_path = os.path.join(subfolder_path, doc_name) + filetype
+    #print(new_doc_path) # ./cambiar\c\demo2.c
+    #print(doc) #./cambiar\demo2.c
     os.rename(doc, new_doc_path)
     moved += 1
 
