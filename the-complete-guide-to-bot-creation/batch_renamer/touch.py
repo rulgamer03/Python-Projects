@@ -2,7 +2,7 @@
 # python touch.py --c 3 delete{5..10}.py
 # python touch.py --c 1 demo{2..9}.c
 # python touch.py --c 2 homework{1..5}.docx
-# python touch.py --c 2 --path ./testing example{1..3}.xls
+# python touch.py --c 2 --path ./ testing example{1..3}.xls
 import os
 import argparse
 
