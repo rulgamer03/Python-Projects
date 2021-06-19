@@ -58,6 +58,7 @@ int main(void)
 Some text\\\\
 ''', file = tex)
   cf = 100
+  print('''\n\\vspace{3pt}\n\\noindent\\hfil\\rule{0.9\\textwidth}{.4pt}\\hfil\n\\vspace{3pt}\n''', file = tex)
   print( '{\Large \\sc Calificaci\\\'{o}n: %d de 100.}\n\n' % cf, file = tex)
   print('''\\end{document}''', file=tex)
 
