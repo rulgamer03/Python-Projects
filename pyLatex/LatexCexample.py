@@ -55,8 +55,10 @@ int main(void)
    printf("%.2f, %d\n", x, y);
 }
 \\end{lstlisting}
-Some text
+Some text\\\\
 ''', file = tex)
+  cf = 100
+  print( '{\Large \\sc Calificaci\\\'{o}n: %d de 100.}\n\n' % cf, file = tex)
   print('''\\end{document}''', file=tex)
 
 
