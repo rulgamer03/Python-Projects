@@ -1,6 +1,7 @@
 from decimal import *
 pi = 0
 n = int(input("What is the value of n: \n"))
+# Pi aproximation
 for k in range(n):
     pi += (1/Decimal(16))**k * (Decimal(4)/(8*k+1) -
           Decimal(2)/(8*k+4) -
