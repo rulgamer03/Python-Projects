@@ -3,7 +3,7 @@ import sys
 import shutil
 import time
 from random import randint
-
+"""    No FUNCIONA  """
 ruta_descargas = "C:\\CarpetaParaOrdenar\\"
 ext_texto = ['.docx','.txt','.doc','.pdf','.pptx']
 ext_foto = ['.png','.jpg','.jpeg','.gif']
