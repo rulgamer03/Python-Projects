@@ -22,6 +22,8 @@ def myfactoring(n): #descomposición en factores primos
       print(i)
 
 def primo(num):
+    if num == 1:
+      return True
     for n in range(2, num):
         if num % n == 0:
             return False
@@ -29,7 +31,6 @@ def primo(num):
 
 """
 a = -2
-
 a = 20
 if primo(a):
     print("Es primo")
