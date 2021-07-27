@@ -21,6 +21,7 @@ def worksentence2(sentence, separator=" "):
         separator (str, optional): The separator of words. Defaults to " ".
     """
     number_of_words = len(sentence.split(separator))
+    print(sentence)
     for j in range (number_of_words-1):
         sentence = sentence.rsplit(' ', 1)[0]
         print(sentence)
