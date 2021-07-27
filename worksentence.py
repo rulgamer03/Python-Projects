@@ -14,6 +14,12 @@ worksentence("La tercera forma de eliminar un eliminar elementos de una lista co
 print("--------------------------------")
 
 def worksentence2(sentence, separator=" "):
+    """Delete the last word of a sentence using a for loop
+
+    Args:
+        sentence (str): A sentence like "Hello world"
+        separator (str, optional): The separator of words. Defaults to " ".
+    """
     number_of_words = len(sentence.split(separator))
     for j in range (number_of_words-1):
         sentence = sentence.rsplit(' ', 1)[0]
