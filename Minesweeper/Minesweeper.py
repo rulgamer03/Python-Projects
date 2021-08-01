@@ -98,7 +98,7 @@ while (play==True):
     lose = False
     wining = False
     answer = input("\nDo you want to play? Y/N \n")
-    if (answer=="Y"):
+    if (answer=="Y" or answer=="y"):
         while (tam < 3 or tam > 26):
             tam = int(input("\nWrite the size of the matrix (Number from 3 to 26)\n"))
             
@@ -140,7 +140,7 @@ while (play==True):
                 print()
                 print_while_playing(matrix,discovered,tam)
                 
-    elif (answer=="N"):
+    elif (answer=="N" or answer=="n"):
         print("\nHave a nice day\n")
         play=False
     else:
