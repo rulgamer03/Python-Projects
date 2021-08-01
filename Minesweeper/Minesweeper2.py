@@ -157,7 +157,7 @@ while (play==True):
 
             b = int(input(f"write the column (Number from 1 to {tam}) "))
             while (b<1 or b>tam):
-                b = int(input(f"write the row (Number from 1 to {tam}) "))
+                b = int(input(f"write the column (Number from 1 to {tam}) "))
             b-=1
 
             if (matrix[a][b]==-1):
