@@ -7,7 +7,6 @@ def make_matrix(m,t,n=0):
             m[i].append(n)
 
 def print_matrix(m,t):
-    character = "#"
     print(f"|  ", end="  | ")
     for j in range(t):
         print (f"{j+1:3d}", end="  ")
