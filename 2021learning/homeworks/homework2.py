@@ -23,7 +23,7 @@ def myfactoring(n): #descomposición en factores primos
 
 def primo(num):
     if num == 1:
-      return True
+        return True
     for n in range(2, num):
         if num % n == 0:
             return False
