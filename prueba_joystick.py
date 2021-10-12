@@ -4,7 +4,7 @@ import pygame
 
 from pygame.locals import *
 import time
-file1 = open("myfile.txt","w") 
+file1 = open("output.txt","w") 
 timeout = time.time() + 60*5   # 5 minutes from now
 
 pygame.init()
