@@ -3,10 +3,9 @@ def perfectnumber(x):
     for i in range(1,x):
         if x % i == 0:
             total+=i
-    if total == x:
-        return True # Nice this number is perfect
-    else:
-        return False # Isn't perfect
+            
+    return total == x
+    
 
 #print(perfectnumber(8))
 for i in range(1,500):
