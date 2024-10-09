@@ -82,29 +82,29 @@ def subir_archivo():
         label_estado.config(text="El archivo no se pudo subir", foreground="red")
         archivo_subido = False
 
-# Función para activar/desactivar la entrada de texto de la pregunta 8
-def toggle_textbox():
-    if var_checkbox.get():
-        text_pregunta8.delete("1.0", tk.END)  # Borra el contenido
-        text_pregunta8.config(state="disabled", background="#d3d3d3")  # Deshabilitar y cambiar a gris
+# Función genérica para activar/desactivar una entrada de texto
+def toggle_textbox(widget, checkbox_var):
+    if checkbox_var.get():
+        widget.delete("1.0", tk.END)  # Borra el contenido
+        widget.config(state="disabled", background="#d3d3d3")  # Deshabilitar y cambiar a gris
     else:
-        text_pregunta8.config(state="normal", background="white")  # Habilitar y cambiar a blanco
+        widget.config(state="normal", background="white")  # Habilitar y cambiar a blanco
 
-# Función para activar/desactivar entrada de texto corto en pregunta 6
-def toggle_entry_pregunta6():
-    if var_pregunta6.get() == "No":
-        entry_pregunta6.delete(0, tk.END)  # Borra el contenido
-        entry_pregunta6.config(state="disabled", background="#d3d3d3")  # Deshabilitar y cambiar a gris
+# Función genérica para activar/desactivar un campo de entrada de texto corto
+def toggle_entry(widget, radio_var):
+    if radio_var.get() == "No":
+        widget.delete(0, tk.END)  # Borra el contenido
+        widget.config(state="disabled", background="#d3d3d3")  # Deshabilitar y cambiar a gris
     else:
-        entry_pregunta6.config(state="normal", background="white")  # Habilitar y cambiar a blanco
+        widget.config(state="normal", background="white")  # Habilitar y cambiar a blanco
 
-# Configurar la ventana para que las columnas se expandan
-window.grid_columnconfigure(0, weight=1)
-window.grid_columnconfigure(1, weight=1)
+# Configurar las columnas para que ocupen el 50% del ancho de la ventana
+window.grid_columnconfigure(0, weight=1, uniform="equal")
+window.grid_columnconfigure(1, weight=1, uniform="equal")
 
 # Columna 1 - Pregunta 1 (respuesta abierta, extensa con scroll)
 frame_pregunta1 = ttk.LabelFrame(window, text="Pregunta 1 (respuesta abierta, extensa):", padding=(10, 5))
-frame_pregunta1.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+frame_pregunta1.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
 text_pregunta1 = tk.Text(frame_pregunta1, width=30, height=5, wrap="word")
 scrollbar_pregunta1 = tk.Scrollbar(frame_pregunta1, orient="vertical", command=text_pregunta1.yview)
@@ -114,7 +114,7 @@ scrollbar_pregunta1.pack(side="right", fill="y")
 
 # Columna 1 - Pregunta 2 (Yes/No radio buttons alineados horizontalmente)
 frame_pregunta2 = ttk.LabelFrame(window, text="Pregunta 2 (Yes/No):", padding=(10, 5))
-frame_pregunta2.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
+frame_pregunta2.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
 
 var_pregunta2 = tk.StringVar(value="Yes")
 radio_yes = ttk.Radiobutton(frame_pregunta2, text="Yes", variable=var_pregunta2, value="Yes")
@@ -124,7 +124,7 @@ radio_no.pack(side="left", padx=5)
 
 # Columna 1 - Pregunta 5 (respuesta abierta, extensa con scroll)
 frame_pregunta5 = ttk.LabelFrame(window, text="Pregunta 5 (respuesta abierta, extensa):", padding=(10, 5))
-frame_pregunta5.grid(row=2, column=0, padx=10, pady=10, sticky="ew")
+frame_pregunta5.grid(row=2, column=0, padx=10, pady=10, sticky="nsew")
 
 text_pregunta5 = tk.Text(frame_pregunta5, width=30, height=5, wrap="word")
 scrollbar_pregunta5 = tk.Scrollbar(frame_pregunta5, orient="vertical", command=text_pregunta5.yview)
@@ -134,7 +134,7 @@ scrollbar_pregunta5.pack(side="right", fill="y")
 
 # Columna 2 - Pregunta 3 (respuesta abierta, extensa con scroll)
 frame_pregunta3 = ttk.LabelFrame(window, text="Pregunta 3 (respuesta abierta, extensa):", padding=(10, 5))
-frame_pregunta3.grid(row=0, column=1, padx=10, pady=10, sticky="ew")
+frame_pregunta3.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
 text_pregunta3 = tk.Text(frame_pregunta3, width=30, height=5, wrap="word")
 scrollbar_pregunta3 = tk.Scrollbar(frame_pregunta3, orient="vertical", command=text_pregunta3.yview)
@@ -144,11 +144,11 @@ scrollbar_pregunta3.pack(side="right", fill="y")
 
 # Columna 2 - Pregunta 4 (Yes/No con texto corto)
 frame_pregunta4 = ttk.LabelFrame(window, text="Pregunta 4 (Yes/No con texto corto):", padding=(10, 5))
-frame_pregunta4.grid(row=1, column=1, padx=10, pady=10, sticky="ew")
+frame_pregunta4.grid(row=1, column=1, padx=10, pady=10, sticky="nsew")
 
 var_pregunta6 = tk.StringVar(value="Yes")
-radio_yes_p6 = ttk.Radiobutton(frame_pregunta4, text="Yes", variable=var_pregunta6, value="Yes", command=toggle_entry_pregunta6)
-radio_no_p6 = ttk.Radiobutton(frame_pregunta4, text="No", variable=var_pregunta6, value="No", command=toggle_entry_pregunta6)
+radio_yes_p6 = ttk.Radiobutton(frame_pregunta4, text="Yes", variable=var_pregunta6, value="Yes", command=lambda: toggle_entry(entry_pregunta6, var_pregunta6))
+radio_no_p6 = ttk.Radiobutton(frame_pregunta4, text="No", variable=var_pregunta6, value="No", command=lambda: toggle_entry(entry_pregunta6, var_pregunta6))
 radio_yes_p6.pack(side="left", padx=5)
 radio_no_p6.pack(side="left", padx=5)
 
@@ -157,7 +157,7 @@ entry_pregunta6.pack(side="left", padx=10)
 
 # Columna 2 - Pregunta 6 (radio buttons)
 frame_pregunta6 = ttk.LabelFrame(window, text="Pregunta 6 (selecciona una opción):", padding=(10, 5))
-frame_pregunta6.grid(row=2, column=1, padx=10, pady=10, sticky="ew")
+frame_pregunta6.grid(row=2, column=1, padx=10, pady=10, sticky="nsew")
 
 var_pregunta4 = tk.StringVar(value="Opción X")
 radio_opcionX = ttk.Radiobutton(frame_pregunta6, text="Opción X", variable=var_pregunta4, value="Opción X")
@@ -167,7 +167,7 @@ radio_opcionY.pack(anchor="w", pady=2)
 
 # Pregunta 7 - Subir archivo
 frame_pregunta7 = ttk.LabelFrame(window, text="Pregunta 7 (Subir archivo Excel):", padding=(10, 5))
-frame_pregunta7.grid(row=3, column=0, columnspan=2, padx=10, pady=20, sticky="ew")
+frame_pregunta7.grid(row=3, column=0, columnspan=2, padx=10, pady=20, sticky="nsew")
 
 boton_subir = ttk.Button(frame_pregunta7, text="Subir archivo", command=subir_archivo)
 boton_subir.pack(pady=10)
@@ -183,10 +183,10 @@ label_estado.pack()
 
 # Pregunta 8 - Respuesta larga con checkbox
 frame_pregunta8 = ttk.LabelFrame(window, text="Pregunta 8 (respuesta larga con checkbox):", padding=(10, 5))
-frame_pregunta8.grid(row=4, column=0, columnspan=2, padx=10, pady=20, sticky="ew")
+frame_pregunta8.grid(row=4, column=0, columnspan=2, padx=10, pady=20, sticky="nsew")
 
 var_checkbox = tk.BooleanVar()
-checkbox_pregunta8 = ttk.Checkbutton(frame_pregunta8, text="No responder", variable=var_checkbox, command=toggle_textbox)
+checkbox_pregunta8 = ttk.Checkbutton(frame_pregunta8, text="No responder", variable=var_checkbox, command=lambda: toggle_textbox(text_pregunta8, var_checkbox))
 checkbox_pregunta8.pack(anchor="w", pady=5)
 
 text_pregunta8 = tk.Text(frame_pregunta8, width=60, height=5, wrap="word")
@@ -198,3 +198,4 @@ boton_guardar.grid(row=5, column=0, columnspan=2, pady=20)
 
 # Iniciar loop de la ventana
 window.mainloop()
+
