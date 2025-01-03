@@ -3,7 +3,7 @@ from tkinter.scrolledtext import ScrolledText
 from spellchecker import SpellChecker
 
 # Lista inicial de palabras clave
-KEYWORDS = ["WORD","WORDS"]
+KEYWORDS = ["IN ORDER TO", "UG-SELECTIONS", "SELECTION"]
 spell = SpellChecker()
 
 # Función para subrayar palabras clave
@@ -35,10 +35,16 @@ def highlight_spelling_errors():
         # Comprobar si no es una palabra clave y no está en el diccionario
         if stripped_word and stripped_word not in KEYWORDS and stripped_word.lower() not in spell:
             errors.append(stripped_word)
-            start_idx = text_output.search(stripped_word, "1.0", stopindex=tk.END, nocase=True)
-            if start_idx:
+
+            # Buscar y resaltar todas las apariciones del error
+            start_idx = "1.0"
+            while True:
+                start_idx = text_output.search(stripped_word, start_idx, stopindex=tk.END, nocase=True)
+                if not start_idx:
+                    break
                 end_idx = f"{start_idx}+{len(stripped_word)}c"
                 text_output.tag_add("error", start_idx, end_idx)
+                start_idx = end_idx
 
     # Configurar el estilo del texto con errores
     text_output.tag_config("error", foreground="red")
@@ -62,7 +68,7 @@ def on_submit():
 
     if errors:
         error_label.config(text="Errores encontrados", fg="red")
-        error_output.insert("1.0", ", ".join(errors))
+        error_output.insert("1.0", "\n".join(errors))
         error_output.tag_config("error_text", foreground="red")
         error_output.tag_add("error_text", "1.0", tk.END)
     else:
@@ -120,3 +126,4 @@ root.columnconfigure(1, weight=1)
 root.columnconfigure(2, weight=1)
 
 root.mainloop()
+
